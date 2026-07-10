@@ -1,0 +1,6 @@
+# Ignore environment variables file
+.env
+
+# Ignore secrets
+db_root_password.txt
+db_password.txt
