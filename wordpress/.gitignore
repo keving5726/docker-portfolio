@@ -4,3 +4,6 @@
 # Ignore secrets
 db_root_password.txt
 db_password.txt
+
+# Vim
+*.swp
