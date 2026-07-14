@@ -1,0 +1,25 @@
+services:
+  wordpress-cli:
+    image: wordpress:cli
+    depends_on:
+      wordpress:
+        condition: service_started
+      redis:
+        condition: service_started
+    environment:
+      WORDPRESS_DB_HOST: mariadb:3306
+      WORDPRESS_DB_NAME: ${DB_NAME}
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD_FILE: /run/secrets/db_password
+      WORDPRESS_CONFIG_EXTRA: |
+        define( 'WP_REDIS_HOST', 'redis' );
+        define( 'WP_REDIS_PORT', 6379 );
+    secrets:
+      - db_password
+    volumes:
+      - wordpress:/var/www/html
+      - ./setup-redis.sh:/usr/local/bin/setup-redis.sh
+    networks:
+      - app-network
+      - isolated
+    command: /bin/sh /usr/local/bin/setup-redis.sh
