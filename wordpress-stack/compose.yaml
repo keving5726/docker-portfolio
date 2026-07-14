@@ -2,6 +2,7 @@ include:
   - mariadb.yaml
   - redis.yaml
   - nginx.yaml
+  - wordpress-cli.yaml
 services:
   wordpress:
     image: wordpress:php8.5-fpm-alpine
