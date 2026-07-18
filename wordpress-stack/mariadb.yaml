@@ -3,10 +3,10 @@ services:
     image: mariadb:lts
     restart: always
     environment:
-      MARIADB_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
+      MARIADB_ROOT_PASSWORD_FILE: ${DB_ROOT_PASSWORD_FILE}
       MARIADB_DATABASE: ${DB_NAME}
       MARIADB_USER: ${DB_USER}
-      MARIADB_PASSWORD_FILE: /run/secrets/db_password
+      MARIADB_PASSWORD_FILE: ${DB_PASSWORD_FILE}
     secrets:
       - db_root_password
       - db_password
