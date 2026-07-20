@@ -5,9 +5,9 @@ services:
     stdin_open: true
     depends_on:
       wordpress:
-        condition: service_started
+        condition: service_healthy
       redis:
-        condition: service_started
+        condition: service_healthy
     environment:
       WORDPRESS_DB_HOST: ${DB_HOST}:${DB_PORT}
       WORDPRESS_DB_NAME: ${DB_NAME}
