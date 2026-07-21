@@ -22,10 +22,10 @@ fi
 # Install and activate Nginx Helper plugin
 if wp plugin is-installed nginx-helper
 then
-	printf "%s\n" "Ensuring Redis Object Cache plugin is active"
+	printf "%s\n" "Ensuring Nginx Helper plugin is active"
 	wp plugin activate nginx-helper
 else
-	printf "%s\n" "Installing and activating Redis Object Cache plugin"
+	printf "%s\n" "Installing and activating Nginx Helper plugin"
 	wp plugin install nginx-helper --activate
 fi
 
