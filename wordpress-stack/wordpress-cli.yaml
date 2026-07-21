@@ -24,6 +24,8 @@ services:
       WORDPRESS_ADMIN_EMAIL: ${WORDPRESS_ADMIN_EMAIL}
     secrets:
       - db_password
+    tmpfs:
+      - /var/cache/nginx:size=512M,mode=0755
     volumes:
       - wordpress:/var/www/html
       - ./scripts:/scripts:ro
