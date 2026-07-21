@@ -3,7 +3,7 @@
 #: Date:	2026-07-19
 #: Author:	"Kevin González" <keving5726@gmail.com>
 #: Version:	1.0
-#: Description:	Install and update Wordpress core
+#: Description:	Install and update WordPress core
 #: Options:	None
 
 # Exit immediately if a command returns a non-zero status

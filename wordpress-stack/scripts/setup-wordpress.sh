@@ -3,13 +3,13 @@
 #: Date:	2026-07-21
 #: Author:	"Kevin González" <keving5726@gmail.com>
 #: Version:	1.0
-#: Description:	Run scripts to install, update and configure Wordpress
+#: Description:	Run scripts to install, update and configure WordPress
 #: Options:	None
 
 # Exit immediately if a command returns a non-zero status
 set -eu
 
-printf "%s\n" "Starting Wordpress core install/update"
+printf "%s\n" "Starting WordPress core install/update"
 /scripts/setup-core.sh
 
 printf "%s\n" "Setting up Redis Object Cache plugin"

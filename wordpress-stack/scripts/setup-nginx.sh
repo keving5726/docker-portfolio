@@ -33,8 +33,8 @@ fi
 printf "%s\n" "Configuring Nginx Helper plugin"
 wp option update rt_wp_nginx_helper_options --format=json < "$CONFIG_FILE"
 
-# Flush Wordpress object cache
-printf "%s\n" "Flushing Wordpress object cache"
+# Flush WordPress object cache
+printf "%s\n" "Flushing WordPress object cache"
 wp cache flush
 
 printf "%s\n" "The Nginx Helper plugin has been installed successfully"
