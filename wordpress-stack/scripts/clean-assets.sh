@@ -7,7 +7,7 @@
 #: Options:	None
 
 # Exit immediately if a command returns a non-zero status
-set -e
+set -eu
 
 # Fetch list of inactive plugins
 printf "%s\n" "Fetching list of inactive plugins"

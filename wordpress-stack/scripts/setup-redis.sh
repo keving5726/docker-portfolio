@@ -7,7 +7,7 @@
 #: Options:	None
 
 # Exit immediately if a command returns a non-zero status
-set -e
+set -eu
 
 # Install and activate Redis Object Cache plugin
 if wp plugin is-installed redis-cache

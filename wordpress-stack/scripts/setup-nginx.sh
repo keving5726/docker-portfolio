@@ -7,7 +7,7 @@
 #: Options:	None
 
 # Exit immediately if a command returns a non-zero status
-set -e
+set -eu
 
 # Define NGINX Helper JSON configuration payload
 CONFIG_FILE="/scripts/nginx-helper-config.json"
