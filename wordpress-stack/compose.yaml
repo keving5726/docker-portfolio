@@ -33,6 +33,8 @@ services:
     networks:
       - app-network
       - isolated
+    extra_hosts:
+      - "$WORDPRESS_HOST:host-gateway"
 
 networks:
   app-network:
