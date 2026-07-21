@@ -1,6 +1,6 @@
 #!/bin/sh
 #: Title:	setup-redis.sh
-#: Date:	2026-06-13
+#: Date:	2026-07-20
 #: Author:	"Kevin González" <keving5726@gmail.com>
 #: Version:	1.1
 #: Description:	Install and activate the Redis Object Cache plugin
