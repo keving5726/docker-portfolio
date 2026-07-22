@@ -4,9 +4,9 @@ services:
     tty: true
     stdin_open: true
     depends_on:
-      wordpress:
+      mariadb:
         condition: service_healthy
-      redis:
+      wordpress:
         condition: service_healthy
     environment:
       WORDPRESS_DB_HOST: ${DB_HOST}:${DB_PORT}
