@@ -23,3 +23,15 @@ The stack isolates core components into dedicated, lightweight containers:
 - **Database**: MariaDB (optimized relational storage).
 - **Object Cache**: Redis (reducing database queries for dynamic content).
 - **CLI Tooling**: WP-CLI via an interactive container environment for administration tasks.
+
+## :arrow_forward: How to Run
+
+**NOTE**: This stack runs locally over `HTTP` by design to minimize setup friction and ensure immediate testing for reviewers without requiring local CA/SSL installations.
+
+### Pre-requisites
+
+Make sure you have the following tools installed on your host machine:
+
+- **Docker Engine**: Version `29.6.2` or higher recommended.
+- **Docker Compose**: Version `v5.3.1` or higher recommended.
+- **GNU Make**: Pre-installed on macOS/Linux (used for shorthand commands).
