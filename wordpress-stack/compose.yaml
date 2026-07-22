@@ -47,6 +47,8 @@ secrets:
      file: db_root_password.txt
    db_password:
      file: db_password.txt
+   wp_admin_password:
+     file: wp_admin_password.txt
 
 volumes:
   wordpress:
