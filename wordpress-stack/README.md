@@ -24,6 +24,31 @@ The stack isolates core components into dedicated, lightweight containers:
 - **Object Cache**: Redis (reducing database queries for dynamic content).
 - **CLI Tooling**: WP-CLI via an interactive container environment for administration tasks.
 
+## :world_map: Architecture Diagrams
+
+### Service Flow Architecture
+
+```mermaid
+graph TD
+    Users@{ shape: cloud, label: "Users" } --> Nginx
+
+    subgraph Core ["WordPress Core"]
+        Nginx -->|FastCGI / HTTP| WordPress[WordPress PHP-FPM]
+    end
+
+    subgraph Data ["Data & Storage"]
+        MariaDB[(MariaDB Database)]
+        Redis[(Redis Cache)]
+    end
+
+    WordPress --->|SQL Queries| MariaDB
+    WordPress -->|Object Cache| Redis
+
+    WPCLI[WP-CLI] -.->|Direct SQL| MariaDB
+    WPCLI -.->|Cache Commands| Redis
+    WPCLI -.->|Reads/Writes Files| WordPress
+```
+
 ## :arrow_forward: How to Run
 
 **NOTE**: This stack runs locally over `HTTP` by design to minimize setup friction and ensure immediate testing for reviewers without requiring local CA/SSL installations.
