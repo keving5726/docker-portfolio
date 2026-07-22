@@ -49,6 +49,31 @@ graph TD
     WPCLI -.->|Reads/Writes Files| WordPress
 ```
 
+### Docker Dependency Graph
+
+```mermaid
+graph LR
+    subgraph App ["Application & Management Layer"]
+        Nginx[Nginx Web Server]
+        WordPress[WordPress PHP-FPM]
+        WPCLI[WordPress CLI]
+    end
+
+    subgraph Data ["Data & Storage Layer"]
+        MariaDB[(MariaDB Database)]
+        Redis[(Redis Cache)]
+    end
+
+    WordPress -->|depends_on| MariaDB
+    WordPress -->|depends_on| Redis
+
+    Nginx -->|depends_on| WordPress
+
+    WPCLI -.->|wait_for_files| WordPress
+    WPCLI -.->|depends_on| MariaDB
+    WPCLI -.->|depends_on| Redis
+```
+
 ## :arrow_forward: How to Run
 
 **NOTE**: This stack runs locally over `HTTP` by design to minimize setup friction and ensure immediate testing for reviewers without requiring local CA/SSL installations.
