@@ -3,7 +3,8 @@ services:
     image: nginx:alpine-slim
     restart: unless-stopped
     depends_on:
-      - wordpress
+      wordpress:
+        condition: service_healthy
     ports:
       - "80:80"
     volumes:
