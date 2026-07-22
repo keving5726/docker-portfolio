@@ -17,13 +17,17 @@ then
 	printf "%s\n" "WordPress core is already installed"
 else
 	printf "%s\n" "WordPress core is not installed. Starting default installation"
+
+	WP_ADMIN_PASSWORD=$(cat $WORDPRESS_ADMIN_PASSWORD_FILE)
+
 	wp core install \
 	--locale="$WORDPRESS_LOCALE" \
 	--url="$WORDPRESS_URL" \
 	--title="$WORDPRESS_TITLE" \
 	--admin_user="$WORDPRESS_ADMIN_USER" \
-	--admin_password="$WORDPRESS_ADMIN_PASSWORD" \
-	--admin_email="$WORDPRESS_ADMIN_EMAIL"
+	--admin_password="$WP_ADMIN_PASSWORD" \
+	--admin_email="$WORDPRESS_ADMIN_EMAIL" \
+	--skip-email
 
 	printf "%s\n" "WordPress core successfully installed!"
 fi
