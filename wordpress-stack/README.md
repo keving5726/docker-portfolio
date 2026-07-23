@@ -136,6 +136,7 @@ Make sure you have the following tools installed on your host machine:
    http://localhost/wp-admin
    ```
 6. **Clean Up**:
+
    Stop and remove the containers and networks when you're done:
    ```bash
    make down
@@ -144,3 +145,9 @@ Make sure you have the following tools installed on your host machine:
    ```bash
    make clean
    ```
+
+## :rocket: Looking Ahead
+
+This project serves as a hands-on demonstration of my containerization and infrastructure skills using **Docker** and **Docker Compose**. 
+
+While designed primarily for local portfolio purposes rather than production deployments, it follows clean-code principles and modular structure to ensure high adaptability and maintainability.
