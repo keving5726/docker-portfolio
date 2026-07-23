@@ -4,6 +4,7 @@
 # Ignore secrets
 db_root_password.txt
 db_password.txt
+wp_admin_password.txt
 
 # Vim
 *.swp
