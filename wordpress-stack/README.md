@@ -14,10 +14,10 @@ This project aims to demonstrate a modern, lightweight **WordPress** development
 
 Designed as a showcase of clean infrastructure practices and streamlined Developer Experience (DX), this setup highlights key DevOps patterns for local environments, including:
 
-* **Modular Architecture**: Clean separation of concerns across web, application, and database layers.
-* **Security & Secret Handling**: Isolated password management using file-based secrets and local `.env` configuration.
-* **Service Coordination**: Orchestrated startup dependencies (`depends_on`) combined with healthchecks to ensure seamless service initialization.
-* **Automated Workflow**: Simplified environment management via a custom `Makefile`.
+- **Modular Architecture**: Clean separation of concerns across web, application, and database layers.
+- **Security & Secret Handling**: Isolated password management using file-based secrets and local `.env` configuration.
+- **Service Coordination**: Orchestrated startup dependencies (`depends_on`) combined with healthchecks to ensure seamless service initialization.
+- **Automated Workflow**: Simplified environment management via a custom `Makefile`.
 
 ## :building_construction: Stack Overview
 
