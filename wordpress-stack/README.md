@@ -86,7 +86,7 @@ Make sure you have the following tools installed on your host machine:
 
 ### :gear: Installation & Setup
 
-1. Create Secret Files
+1. **Create Secret Files**
 
    Generate the required password files for MariaDB and WordPress to keep sensitive data secure:
    ```bash
@@ -94,32 +94,32 @@ Make sure you have the following tools installed on your host machine:
    echo -n "YourPasswordHere!" > db_password.txt
    echo -n "YourPasswordHere!" > wp_admin_password.txt
    ```
-   **Note**: Replace "YourPasswordHere!" with your desired secure passwords.
-2. Update Your Hosts File
+   **Note**: Replace `YourPasswordHere!` with your desired secure passwords.
+2. **Update Your Hosts File**
 
    Map your local domain name to `127.0.0.1` so you can access the site locally:
    ```bash
    sudo nano /etc/hosts
    ```
-   For example, if my local domain name is `wordpress.local`, add the following entry:
+   For example, if your local domain name is `wordpress.local`, add the following entry:
    ```text
    127.0.0.1    localhost wordpress.local
    ```
-3. Environment Configuration
+3. **Environment Configuration**
 
    Copy the example environment file and adjust the values according to your setup:
    ```bash
    cp .env.example .env
    ```
    Open `.env` and customize the values for your setup.
-4. Run the Stack
+4. **Run the Stack**
 
    Start all services in detached mode using Makefile:
    ```bash
    make up
    ```
    (Alternatively, if not using make: `docker compose up -d`)
-5. Verify the Installation
+5. **Verify the Installation**
 
    Once the containers are running, open your browser and navigate to:
    ```bash
@@ -135,9 +135,8 @@ Make sure you have the following tools installed on your host machine:
    ```bash
    http://localhost/wp-admin
    ```
-6. Clean Up
-
-   Stop and remove the containers and networks:
+6. **Clean Up**:
+   Stop and remove the containers and networks when you're done:
    ```bash
    make down
    ```
