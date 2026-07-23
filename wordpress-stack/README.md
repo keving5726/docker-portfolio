@@ -140,7 +140,7 @@ Make sure you have the following tools installed on your host machine:
    ```bash
    http://localhost/wp-admin
    ```
-6. **Clean Up**:
+6. **Clean Up**
 
    Stop and remove the containers and networks when you're done:
    ```bash
