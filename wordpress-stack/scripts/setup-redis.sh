@@ -10,8 +10,7 @@
 set -eu
 
 # Install and activate Redis Object Cache plugin
-if wp plugin is-installed redis-cache
-then
+if wp plugin is-installed redis-cache; then
 	printf "%s\n" "Ensuring Redis Object Cache plugin is active"
 	wp plugin activate redis-cache
 else

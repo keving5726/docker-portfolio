@@ -14,8 +14,7 @@ printf "%s\n" "Fetching list of inactive plugins"
 INACTIVE_PLUGINS=$(wp plugin list --status=inactive --field=name)
 
 # Delete inactive WordPress plugins
-if [ -n "$INACTIVE_PLUGINS" ]
-then
+if [ -n "$INACTIVE_PLUGINS" ]; then
 	printf "%s\n" "Deleting inactive WordPress plugins"
 	printf "%s\n" "$INACTIVE_PLUGINS" | xargs wp plugin delete
 else
@@ -27,8 +26,7 @@ printf "%s\n" "Fetching list of inactive themes"
 INACTIVE_THEMES=$(wp theme list --status=inactive --field=name)
 
 # Delete inactive WordPress plugins
-if [ -n "$INACTIVE_THEMES" ]
-then
+if [ -n "$INACTIVE_THEMES" ]; then
 	printf "%s\n" "Deleting inactive WordPress themes"
 	printf "%s\n" "$INACTIVE_THEMES" | xargs wp theme delete
 else

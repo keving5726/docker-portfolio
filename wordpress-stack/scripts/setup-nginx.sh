@@ -13,15 +13,13 @@ set -eu
 CONFIG_FILE="/scripts/nginx-helper-config.json"
 
 # Check if configuration file exists
-if [ ! -f "$CONFIG_FILE" ]
-then
+if [ ! -f "$CONFIG_FILE" ]; then
 	printf "%s\n" "Error: Configuration file '$CONFIG_FILE' not found!" >&2
 	exit 1
 fi
 
 # Install and activate Nginx Helper plugin
-if wp plugin is-installed nginx-helper
-then
+if wp plugin is-installed nginx-helper; then
 	printf "%s\n" "Ensuring Nginx Helper plugin is active"
 	wp plugin activate nginx-helper
 else
@@ -31,7 +29,7 @@ fi
 
 # Apply Nginx Helper configuration
 printf "%s\n" "Configuring Nginx Helper plugin"
-wp option update rt_wp_nginx_helper_options --format=json < "$CONFIG_FILE"
+wp option update rt_wp_nginx_helper_options --format=json <"$CONFIG_FILE"
 
 # Flush WordPress object cache
 printf "%s\n" "Flushing WordPress object cache"
