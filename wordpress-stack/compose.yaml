@@ -1,0 +1,56 @@
+include:
+  - mariadb.yaml
+  - redis.yaml
+  - nginx.yaml
+  - wordpress-cli.yaml
+services:
+  wordpress:
+    image: wordpress:php8.5-fpm-alpine
+    restart: always
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      WORDPRESS_DB_HOST: ${DB_HOST}:${DB_PORT}
+      WORDPRESS_DB_NAME: ${DB_NAME}
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD_FILE: ${DB_PASSWORD_FILE}
+      WORDPRESS_CONFIG_EXTRA: |
+        define( 'WP_REDIS_HOST', '${REDIS_HOST}' );
+        define( 'WP_REDIS_PORT', ${REDIS_PORT} );
+    healthcheck:
+      test: ["CMD", "nc", "-z", "127.0.0.1", "9000"]
+      start_period: 10s
+      interval: 5s
+      timeout: 3s
+      retries: 3
+    secrets:
+      - db_password
+    volumes:
+      - wordpress:/var/www/html
+    networks:
+      - app-network
+      - isolated
+    extra_hosts:
+      - "$WORDPRESS_HOST:host-gateway"
+
+networks:
+  app-network:
+    driver: bridge
+  isolated:
+    internal: true
+
+secrets:
+   db_root_password:
+     file: db_root_password.txt
+   db_password:
+     file: db_password.txt
+   wp_admin_password:
+     file: wp_admin_password.txt
+
+volumes:
+  wordpress:
+  mariadb:
+  redis:
